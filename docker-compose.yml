@@ -6,11 +6,12 @@ services:
     container_name: flaskapp
     # ports:
     #  - "8000:8000"
-    # network_mode: host
+    network_mode: host
 
   flaskapp1:
     build: ./flaskapp1-docker
     container_name: flaskapp1
+    network_mode: host
 
   nginx:
     build: ./nginx
@@ -18,8 +19,4 @@ services:
     environment:
       - SERVER_NAME=0.0.0.0
     restart: always
-    # network_mode: host
-
-networks:
-  default:
-    driver: bridge
+    network_mode: host
